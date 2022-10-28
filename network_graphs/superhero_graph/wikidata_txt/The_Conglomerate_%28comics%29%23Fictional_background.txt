@@ -1,0 +1,1 @@
+{"batchcomplete":"","query":{"normalized":[{"from":"The_Conglomerate_(comics)#Fictional_background","to":"The Conglomerate (comics)"}],"pages":{"-1":{"ns":0,"title":"The Conglomerate (comics)","missing":""}}}}
