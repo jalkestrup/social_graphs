@@ -82,7 +82,7 @@ def create_bipartite_graph(df):
 
 #function to loop through all politician nodes of the network and set attributes accordingly
 #The function is split from the creation of the network, so that setting the attributes is not repeated for every law when politicians nodes are added
-def set_politician_attributes(G):
+def set_politician_attributes(G, periode_id):
     for node in G.nodes():
         if G.nodes[node]['type'] == 'politician':
             #set attribute 'party' as the party of the politician
