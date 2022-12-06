@@ -8,7 +8,7 @@ import seaborn as sns
 import networkx as nx
 
 import matplotlib.patches as patches
-from fa2 import ForceAtlas2
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib import colors
