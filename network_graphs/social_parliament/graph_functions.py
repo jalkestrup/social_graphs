@@ -17,7 +17,7 @@ from matplotlib import colors
 
 #import politician_df from pickle
 import pickle
-with open('politician_df_python3-7.pkl', 'rb') as handle:
+with open('politician_clean_df.pkl', 'rb') as handle:
     politician_df = pickle.load(handle)
 
 def create_color_map():
@@ -91,7 +91,7 @@ def set_politician_attributes(G, periode_id):
             G.nodes[node]['name'] = politician_df[politician_df['politician_id'] == node]['politician_name'].values[0]
             #set attribute 'color' as the color of the party
             #Hacky way just to take the first element on the party list and assign color accordingly
-            G.nodes[node]['color'] = color_map[list(G.nodes[node]['party'].values())[0]]
+            G.nodes[node]['color'] = color_map[G.nodes[node]['party'][periode_id]]
             #set node bipartite to 1
             G.nodes[node]['bipartite'] = 1
     return G
