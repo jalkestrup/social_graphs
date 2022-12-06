@@ -17,7 +17,7 @@ from matplotlib import colors
 
 #import politician_df from pickle
 import pickle
-with open('politician_clean_df.pkl', 'rb') as handle:
+with open('politician_df_clean.pkl', 'rb') as handle:
     politician_df = pickle.load(handle)
 
 def create_color_map():
@@ -70,10 +70,16 @@ def create_bipartite_graph(df):
                 #if node does not exist, add node with politician id as name and party as attribute and set attribute 'type' as politician
                 #if vote['aktor_id'] not in G:
                 #    G.add_node(vote['aktor_id'], party=vote['party'], type='politician', bipartite=1, name=vote['name'])
-                G.add_edge(row['afstemnings_id_pfix'], vote['aktørid'])
+                G.add_edge(row['afstemnings_id_pfix'], vote['aktørid'], weight = 1)
                 #set attribute 'type' as politician
                 #set node type to politician
                 G.nodes[vote['aktørid']]['type'] = 'politician'
+            #elif vote['typeid'] == 2:
+            #    G.add_edge(row['afstemnings_id_pfix'], vote['aktørid'], weight = -1)
+                #set attribute 'type' as politician
+                #set node type to politician
+            #    G.nodes[vote['aktørid']]['type'] = 'politician'
+
  
     
     return G
