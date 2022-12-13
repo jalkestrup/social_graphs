@@ -70,11 +70,15 @@ def create_bipartite_graph(df):
                 #if node does not exist, add node with politician id as name and party as attribute and set attribute 'type' as politician
                 #if vote['aktor_id'] not in G:
                 #    G.add_node(vote['aktor_id'], party=vote['party'], type='politician', bipartite=1, name=vote['name'])
-                G.add_edge(row['afstemnings_id_pfix'], vote['aktørid'])
+                G.add_edge(row['afstemnings_id_pfix'], vote['aktørid'], weight = 1)
                 #set attribute 'type' as politician
                 #set node type to politician
                 G.nodes[vote['aktørid']]['type'] = 'politician'
- 
+            if vote['typeid'] == 2:
+                G.add_edge(row['afstemnings_id_pfix'], vote['aktørid'], weight = -1)
+                #set attribute 'type' as politician
+                #set node type to politician
+                G.nodes[vote['aktørid']]['type'] = 'politician' 
     
     return G
 
